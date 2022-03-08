@@ -9,10 +9,10 @@ function isNumeric(str) {
 }
 
 let refTable = ""
-function doIt(response) {
+function doIt(resp) {
     refTable = document.createElement("table")
-    for (let i = 0; i < response.length; i++) {
-        showRecord(response[i].id, response[i].stadium, response[i].conditions, response[i].teamSize)
+    for (let i = 0; i < resp.length; i++) {
+        showRecord(resp[i].id, resp[i].stadium, resp[i].conditions, resp[i].teamSize)
     }
   } 
    
@@ -82,7 +82,7 @@ function view() {
       response.json().then((data) => {
         console.info(data);
         // show data
-        doIt(response)
+        doIt(data)
       })  
 
     }).catch((err) => console.error(`${err}`)); 
@@ -96,7 +96,7 @@ function view() {
       response.json().then(data => {
         console.info(data);
         // show data
-        doIt(response)
+        doIt(data)
       })
 
     }).catch((err) => console.error(`${err}`)); 
