@@ -1,6 +1,53 @@
+// Extra functions
+function isNumeric(str) {
+  
+  if (typeof str != "string") {
+    return false;
+  }
+  return !isNaN(str) && !isNaN(parseInt(str));
+
+}
+
+let refTable = ""
+function doIt(response) {
+    refTable = document.createElement("table")
+    for (let i = 0; i < response.length; i++) {
+        showRecord(response[i].id, response[i].stadium, response[i].conditions, response[i].teamSize)
+    }
+  } 
+   
+function showRecord(id1, stadium1, conditions1, teamSize1) {
+  
+  let refRow = document.createElement("tr")
+  let refTd1 = document.createElement("td")
+  let refTd2 = document.createElement("td")
+  let refTd3 = document.createElement("td")
+  let refTd4 = document.createElement("td")
+
+  refTd1.innerHTML = id1 
+  refTd2.innerHTML = stadium1  
+  refTd3.innerHTML = conditions1
+  refTd4.innerHTML = teamSize1
+
+  refRow.appendChild(refTd1)
+  refRow.appendChild(refTd2)
+  refRow.appendChild(refTd3)
+  refRow.appendChild(refTd4)
+
+  refTable.appendChild(refRow)
+  
+  document.body.appendChild(refTable)
+
+}    
+
+// CRUD functionality
 function create() {
-    if (document.getElementById("c1").value != "" && document.getElementById("c2").value != "" 
-    && document.getElementById("c3").value != "") {
+  
+  let c1 = document.getElementById("c1").value.trim();
+  let c2 = document.getElementById("c2").value.trim();
+  let c3 = document.getElementById("c3").value.trim();
+  
+  if (c1 !== "" && c2 !== "" && isNumeric(c3)) {
         fetch("http://localhost:8080/create", { //1
         method: 'post', //2
         headers: {
@@ -8,9 +55,9 @@ function create() {
         },
         body: JSON.stringify( //4
           {
-            "stadium": document.getElementById("c1").value.trim(),//5
-            "conditions": document.getElementById("c2").value.trim(),
-            "teamSize": document.getElementById("c3").value.trim()
+            "stadium": c1,//5
+            "conditions": c2,
+            "teamSize": c3
           }
         )
       })
@@ -18,7 +65,104 @@ function create() {
       .then((data) => console.log(`Request succeeded with JSON response ${data}`))
       .catch((error) => console.log(`Request failed ${error}`))
     }
-    else (alert("Make sure all the fields are not empty"))
+    else (alert("Make sure all the fields are not empty and that ID and Team Size are whole numbers"))
     
-
 };
+
+function view() {
+  
+  const v1 = document.getElementById("v1").value.trim()
+  
+  if (isNumeric(v1)) {
+    fetch(`http://localhost:8080/getById/${v1}`).then((response) => {
+      if (response.status !== 200) {
+        console.error(`status: ${response.status}`);
+        return;
+      }
+      response.json().then((data) => {
+        console.info(data);
+        // show data
+        doIt(response)
+      })  
+
+    }).catch((err) => console.error(`${err}`)); 
+  }
+  else {
+    fetch("http://localhost:8080/getAll").then((response) => {
+      if (response.status !== 200) {
+        console.error(`status: ${response.status}`);
+        return;
+      }
+      response.json().then(data => {
+        console.info(data);
+        // show data
+        doIt(response)
+      })
+
+    }).catch((err) => console.error(`${err}`)); 
+  }
+
+}
+
+  function edit() {
+    
+    let e1 = document.getElementById("e1").value;
+    let e2 = document.getElementById("e2").value;
+    let e3 = document.getElementById("e3").value;
+    let e4 = document.getElementById("e4").value;
+    
+    if (isNumeric(e1) && e2 !== "" && e3 !== "" && isNumeric(e4)) {
+      fetch(`http://localhost:8080/replace/${e1}`, { //1
+      method: 'put', //2
+      headers: {
+        "Content-type": "application/json" //3
+      },
+      body: JSON.stringify( //4
+        {
+          "id": e1.trim(),
+          "stadium": e2.trim(),//5
+          "conditions": e3.trim(),
+          "teamSize": e4.trim()
+        }
+      )
+    })
+    .then(res => {
+      res.json();
+      // change element in list
+    })
+    .then((data) => console.log(`Request succeeded with JSON response ${data}`))
+    .catch((error) => console.log(`Request failed ${error}`))
+  }
+  else {
+    alert("Make sure all the fields are not empty and that ID and Team Size are whole numbers");
+  }
+
+}
+
+function deleteById() {
+
+  let d1 = document.getElementById("d1").value;
+
+  if (isNumeric(d1)) {
+
+    fetch(`http://localhost:8080/remove/${d1}`, {
+      method: 'delete'
+    }).then((data) => {
+      console.log(`Request succeeded with JSON response ${data}`);
+      // remove item from list
+    }).catch((err) => {
+      console.log(`Request failed with JSON response ${err}`);
+  
+    })
+
+  }
+
+  else {
+
+    alert("Please enter a whole number")
+
+  }
+
+}
+
+  
