@@ -1,4 +1,4 @@
-// Extra functions
+// Functions enabling CRUD
 function isNumeric(str) {
   
   if (typeof str != "string") {
@@ -8,13 +8,36 @@ function isNumeric(str) {
 
 }
 
+function removeElement(id) {
+  var elem = document.getElementById(id);
+  return elem.parentNode.removeChild(elem);
+}
+
 let refTable = ""
-function doIt(resp) {
-    refTable = document.createElement("table")
-    for (let i = 0; i < resp.length; i++) {
+function viewAll(resp) {
+    
+  if (refTable) {
+    removeElement("table1")
+  }
+  refTable = document.createElement("table")
+  refTable.id = "table1"
+
+  for (let i = 0; i < resp.length; i++) {
         showRecord(resp[i].id, resp[i].stadium, resp[i].conditions, resp[i].teamSize)
     }
-  } 
+}
+
+function viewById(resp) {
+
+  if (refTable) {
+    removeElement("table1")
+  }
+  refTable = document.createElement("table")
+  refTable.id = "table1"
+
+  showRecord(resp.id, resp.stadium, resp.conditions, resp.teamSize)
+
+}  
    
 function showRecord(id1, stadium1, conditions1, teamSize1) {
   
@@ -82,7 +105,7 @@ function view() {
       response.json().then((data) => {
         console.info(data);
         // show data
-        doIt(data)
+        viewById(data)
       })  
 
     }).catch((err) => console.error(`${err}`)); 
@@ -96,7 +119,7 @@ function view() {
       response.json().then(data => {
         console.info(data);
         // show data
-        doIt(data)
+        viewAll(data)
       })
 
     }).catch((err) => console.error(`${err}`)); 
