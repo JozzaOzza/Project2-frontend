@@ -75,4 +75,4 @@ Figures
 
 Figure 1
 
-![coverage photo](../Documents/qa/project2-frontend/images/stadium-wasteland.webp)
+![coverage photo](https://github.com/JozzaOzza/Project2-frontend/blob/feature-css/test%20coverage%20screenshot.png)
