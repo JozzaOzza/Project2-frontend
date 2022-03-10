@@ -13,16 +13,8 @@ function removeElement(id) {
   return elem.parentNode.removeChild(elem);
 }
 
-let refTable = ""
-function viewAll(resp) {
-    
-  if (refTable) {
-    removeElement("table1")
-  }
-  refTable = document.createElement("table")
-  refTable.id = "table1"
+function makeTableHeaders() {
 
-    
   let refRow1 = document.createElement("tr")
   let refTh1 = document.createElement("th")
   let refTh2 = document.createElement("th")
@@ -40,6 +32,19 @@ function viewAll(resp) {
   refRow1.appendChild(refTh4)
 
   refTable.appendChild(refRow1)
+
+}
+
+let refTable = ""
+function viewAll(resp) {
+    
+  if (refTable) {
+    removeElement("table1")
+  }
+  refTable = document.createElement("table")
+  refTable.id = "table1"
+
+  makeTableHeaders()
 
   for (let i = 0; i < resp.length; i++) {
         showRecord(resp[i].id, resp[i].stadium, resp[i].conditions, resp[i].teamSize)
@@ -54,25 +59,8 @@ function viewById(resp) {
   refTable = document.createElement("table")
   refTable.id = "table1"
 
-    
-  let refRow1 = document.createElement("tr")
-  let refTh1 = document.createElement("th")
-  let refTh2 = document.createElement("th")
-  let refTh3 = document.createElement("th")
-  let refTh4 = document.createElement("th")
-
-  refTh1.innerHTML = `ID` 
-  refTh2.innerHTML = `Stadium`  
-  refTh3.innerHTML = `Conditions`
-  refTh4.innerHTML = `Team Size`
-
-  refRow1.appendChild(refTh1)
-  refRow1.appendChild(refTh2)
-  refRow1.appendChild(refTh3)
-  refRow1.appendChild(refTh4)
-
-  refTable.appendChild(refRow1)
-
+  makeTableHeaders()  
+  
   showRecord(resp.id, resp.stadium, resp.conditions, resp.teamSize)
 
 }  
