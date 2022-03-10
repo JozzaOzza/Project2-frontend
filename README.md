@@ -14,7 +14,7 @@ Introduction
 
     Java SE & Spring Boot - Functional application created in OOP language which meets requirements of Kanban board.
 
-    Testing - Acceptable level of test coverage on back-end (MockMVC). The testing for this project has 97.7% coverage. See Figure 1
+    Testing - Acceptable level of test coverage on back-end (MockMVC). The testing for this project has 98.7% coverage. See Figure 1
 
     Front-End Development - Functioning front-end website with API integration.
 
@@ -41,6 +41,8 @@ Planning Resources:
 
     I made regular commits, and pushed these commits up to my remote repository for extra protection. These commits were usually made after adding new functionality or fixing an issue.
 
+    See Figure 2 for a picture of the project Roadmap.
+
 Databases
 
     Two databases were used in this project, a local H2 database which was used for testing the back-end and a MySQL database for storing the persistent data from the application.
@@ -61,11 +63,13 @@ Testing
 
     Only integration testing was used on this project
 
-    Integration testing: MockMVC\
+    Integration testing:
 
     To make sure that the program was working, I used MockMVC to create a mocked Controller class.
 
     It performed mock HTTP requests like a user of the program would and allowed me to test the outcomes of each HTTP endpoint.
+
+    See Figure 3 for an example of one of the integration tests used in the project.
 
 Frontend
 
@@ -76,3 +80,11 @@ Figures
 Figure 1
 
 ![coverage photo](https://github.com/JozzaOzza/Project2-frontend/blob/feature-css/test%20coverage%20screenshot.png)
+
+Figure 2
+
+![coverage photo](https://github.com/JozzaOzza/Project2-frontend/blob/feature-css/test%20example%20screenshot.png)
+
+Figure 3
+
+![coverage photo](https://github.com/JozzaOzza/Project2-frontend/blob/feature-css/project%20roadmap%20screenshot.png)
