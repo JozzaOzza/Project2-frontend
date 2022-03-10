@@ -75,4 +75,4 @@ Figures
 
 Figure 1
 
-    ![coverage photo](../Documents/qa/project2-frontend/images/stadium-wasteland.webp)
+![coverage photo](../Documents/qa/project2-frontend/images/stadium-wasteland.webp)
