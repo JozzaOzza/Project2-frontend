@@ -1,9 +1,11 @@
 # Rocket League Fixture Creator Project
 
 Author
+
     Jamie Orr
 
 Introduction
+
     The brief was to create a CRUD application that encapsulated all the core modules covered during the training.
 
     Project Management - A fully expanded Jira board, clear documentation from a design phase. Code integrated into a Version Control System. In this project I used GitHub.
@@ -12,11 +14,12 @@ Introduction
 
     Java SE & Spring Boot - Functional application created in OOP language which meets requirements of Kanban board.
 
-    Testing - Acceptable level of test coverage on back-end (MockMVC). The testing for this project has 97.7% coverage.
+    Testing - Acceptable level of test coverage on back-end (MockMVC). The testing for this project has 97.7% coverage. See Figure 1
 
     Front-End Development - Functioning front-end website with API integration.
 
 Planning Resources:
+
     Using Jira Software I created a Kanban board. Within this I made 4 Epics relating to different phases of the project. An example of one of the Epics is below:
 
     Epic: Create the backend of the project
@@ -39,6 +42,7 @@ Planning Resources:
     I made regular commits, and pushed these commits up to my remote repository for extra protection. These commits were usually made after adding new functionality or fixing an issue.
 
 Databases
+
     Two databases were used in this project, a local H2 database which was used for testing the back-end and a MySQL database for storing the persistent data from the application.
 
     H2:
@@ -50,9 +54,11 @@ Databases
     The layout for my MySql database was very simple. There was only one entity (fixtures), which contained 4 fields (id, stadium, conditions and team size).
 
 Backend
+
     The back-end of this project was created using Java in a Spring Boot Framework. All the Kanban requirements were met.
 
 Testing
+
     Only integration testing was used on this project
 
     Integration testing: MockMVC\
@@ -62,4 +68,11 @@ Testing
     It performed mock HTTP requests like a user of the program would and allowed me to test the outcomes of each HTTP endpoint.
 
 Frontend
+
     The front-end is built from HTML, CSS and JavaScript. The JavaScript file contains functions which use the Fetch API to send requests to the database and retrieve information.
+
+Figures
+
+Figure 1
+
+    ![coverage photo](../Documents/qa/project2-frontend/images/stadium-wasteland.webp)
