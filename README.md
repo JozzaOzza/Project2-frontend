@@ -40,6 +40,8 @@ Planning Resources:
     I set up two git repositories before starting - one for the front-end and one for back-end.
 
     I made regular commits, and pushed these commits up to my remote repository for extra protection. These commits were usually made after adding new functionality or fixing an issue.
+    
+    [Click here to see the Jira board](https://jamie4.atlassian.net/jira/software/projects/QAP2/boards/2)
 
     See Figure 2 for a picture of the project Roadmap.
 
