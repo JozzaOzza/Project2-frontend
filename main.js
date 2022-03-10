@@ -9,8 +9,30 @@ function isNumeric(str) {
 }
 
 function removeElement(id) {
-  var elem = document.getElementById(id);
+  let elem = document.getElementById(id);
   return elem.parentNode.removeChild(elem);
+}
+
+function makeTableHeaders() {
+
+  let refRow1 = document.createElement("tr")
+  let refTh1 = document.createElement("th")
+  let refTh2 = document.createElement("th")
+  let refTh3 = document.createElement("th")
+  let refTh4 = document.createElement("th")
+
+  refTh1.innerHTML = `ID` 
+  refTh2.innerHTML = `Stadium`  
+  refTh3.innerHTML = `Conditions`
+  refTh4.innerHTML = `Team Size`
+
+  refRow1.appendChild(refTh1)
+  refRow1.appendChild(refTh2)
+  refRow1.appendChild(refTh3)
+  refRow1.appendChild(refTh4)
+
+  refTable.appendChild(refRow1)
+
 }
 
 let refTable = ""
@@ -21,6 +43,8 @@ function viewAll(resp) {
   }
   refTable = document.createElement("table")
   refTable.id = "table1"
+
+  makeTableHeaders()
 
   for (let i = 0; i < resp.length; i++) {
         showRecord(resp[i].id, resp[i].stadium, resp[i].conditions, resp[i].teamSize)
@@ -35,29 +59,31 @@ function viewById(resp) {
   refTable = document.createElement("table")
   refTable.id = "table1"
 
+  makeTableHeaders()  
+  
   showRecord(resp.id, resp.stadium, resp.conditions, resp.teamSize)
 
 }  
    
 function showRecord(id1, stadium1, conditions1, teamSize1) {
-  
-  let refRow = document.createElement("tr")
+
+  let refRow2 = document.createElement("tr")
   let refTd1 = document.createElement("td")
   let refTd2 = document.createElement("td")
   let refTd3 = document.createElement("td")
   let refTd4 = document.createElement("td")
 
-  refTd1.innerHTML = id1 
-  refTd2.innerHTML = stadium1  
-  refTd3.innerHTML = conditions1
-  refTd4.innerHTML = teamSize1
+  refTd1.innerHTML = `${id1}` 
+  refTd2.innerHTML = `${stadium1}`  
+  refTd3.innerHTML = `${conditions1}`
+  refTd4.innerHTML = `${teamSize1}`
 
-  refRow.appendChild(refTd1)
-  refRow.appendChild(refTd2)
-  refRow.appendChild(refTd3)
-  refRow.appendChild(refTd4)
+  refRow2.appendChild(refTd1)
+  refRow2.appendChild(refTd2)
+  refRow2.appendChild(refTd3)
+  refRow2.appendChild(refTd4)
 
-  refTable.appendChild(refRow)
+  refTable.appendChild(refRow2)
   
   document.body.appendChild(refTable)
 
