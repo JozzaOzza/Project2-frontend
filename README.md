@@ -20,7 +20,7 @@ Introduction
 
 Planning Resources:
 
-    Using Jira Software I created a Kanban board. Within this I made 4 Epics relating to different phases of the project. An example of one of the Epics is below:
+    Using Jira Software I created a Kanban board. Within this I made 4 Epics relating to different phases of the project. An example of one of the Epics is below: 
 
     Epic: Create the backend of the project
 
@@ -40,8 +40,8 @@ Planning Resources:
     I set up two git repositories before starting - one for the front-end and one for back-end.
 
     I made regular commits, and pushed these commits up to my remote repository for extra protection. These commits were usually made after adding new functionality or fixing an issue.
-    
-    Use this link to see the Jira board for the project - https://jamie4.atlassian.net/jira/software/projects/QAP2/boards/2
+
+    See the whole Jira board [here](https://jamie4.atlassian.net/jira/software/projects/QAP2/boards/2/roadmap)
 
     See Figure 2 for a picture of the project Roadmap.
 
@@ -51,7 +51,7 @@ Databases
 
     H2:
 
-    The H2 database was created with fixture-schema.sql and fixture-data.sql files to populate the fields for testing purposes.
+    The H2 database was created with fixture-schema.sql and fixture-data.sql files to automatically populate the fields for testing purposes.
 
     MySQL:
 
@@ -69,7 +69,7 @@ Testing
 
     To make sure that the program was working, I used MockMVC to create a mocked Controller class.
 
-    It performed mock HTTP requests like a user of the program would and allowed me to test the outcomes of these requests against pre-made responses.
+    It performed mock HTTP requests like a user of the program would and allowed me to test the outcomes of each HTTP endpoint.
 
     See Figure 3 for an example of one of the integration tests used in the project.
 
